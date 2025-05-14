@@ -2,10 +2,11 @@ using System;
 
 using UnityEngine;
 
-public class MiniGamesManager : MonoBehaviour
+public class MiniGamesManager : MonoBehaviour//Singleton<MiniGamesManager>
 {
     public static MiniGamesManager Instance;
     public event Action OnStartMiniGame;
+    public event Action OnEndMiniGame;
     public event Action OnWinMiniGame;
     public event Action OnLoseMiniGame;
 
@@ -14,8 +15,16 @@ public class MiniGamesManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;    
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
+
 
     private void OnEnable()
     {
@@ -50,9 +59,11 @@ public class MiniGamesManager : MonoBehaviour
     public void EndMinigame()
     {
         ShowObjects(true);
+        OnEndMiniGame?.Invoke();
     }
     public void ShowObjects(bool show)
     {
+        if (objectsToHideOnMinigame == null || objectsToHideOnMinigame.Length < 1) return;
         foreach(GameObject obj in objectsToHideOnMinigame)
         {
             obj.SetActive(show);

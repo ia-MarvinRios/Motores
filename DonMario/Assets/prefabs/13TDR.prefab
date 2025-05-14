@@ -188,7 +188,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6e6fd7c3cda1ba942bfec675cd5fde07, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -210,6 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66644990d710160408281a070f07d7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayed: 0
+  isBlackBlock: 0
+  scenaryParent: {fileID: 0}
   spawnPoints:
   - {fileID: 3325301325429556007}
   - {fileID: 5314175887651724990}
@@ -267,6 +270,11 @@ MonoBehaviour:
   - {fileID: 7181336485134466159, guid: ccea640290a6089469ff2b49104e51fd, type: 3}
   - {fileID: 7181336485134466159, guid: ccea640290a6089469ff2b49104e51fd, type: 3}
   - {fileID: 7181336485134466159, guid: ccea640290a6089469ff2b49104e51fd, type: 3}
+  blockDoorPrefab: {fileID: 5919793923188550696, guid: 8544b475643308941827a662274ac317, type: 3}
+  upRoom: {fileID: 0}
+  downRoom: {fileID: 0}
+  leftRoom: {fileID: 0}
+  rightRoom: {fileID: 0}
 --- !u!61 &6165335538332387499
 BoxCollider2D:
   m_ObjectHideFlags: 0

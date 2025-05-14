@@ -154,7 +154,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2df0681ed8a6a604fa0c673217452e33, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -176,45 +176,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66644990d710160408281a070f07d7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayed: 0
+  isBlackBlock: 1
   scenaryParent: {fileID: 0}
   spawnPoints: []
   minSpawnDelay: 0.1
   maxSpawnDelay: 0.3
-  roomsPrefabsT:
-  - {fileID: 5734238852682100714, guid: c88b14ff11976314ab54032575b135cb, type: 3}
-  - {fileID: 4099767567494057017, guid: 2b6094634f038c845889927c909e06d1, type: 3}
-  - {fileID: 1896079856033507380, guid: 4b14c4804a0c49746989252a7ef738eb, type: 3}
-  - {fileID: 1124451915951348257, guid: d530a48d61bfbdf4dbe2475335ad4dd4, type: 3}
-  - {fileID: 584025521271711163, guid: 57e17adb5db1bb34080da455fba0504d, type: 3}
-  - {fileID: 8150014201870379503, guid: 302b20b2c19fae24ba381d82247abf50, type: 3}
-  - {fileID: 4775874597414784544, guid: 966d1187ee068ff4a97e90d40e42b369, type: 3}
-  - {fileID: 8150014201870379503, guid: a076287e8baa0a04897c720d5264427e, type: 3}
-  roomsPrefabsD:
-  - {fileID: 3368839797423558419, guid: 94add020ef5c5694daae498548f1b307, type: 3}
-  - {fileID: 5734238852682100714, guid: c88b14ff11976314ab54032575b135cb, type: 3}
-  - {fileID: 5247824065576566053, guid: cefc5d6491fa4f1469845c3ddbae15a0, type: 3}
-  - {fileID: 1124451915951348257, guid: d530a48d61bfbdf4dbe2475335ad4dd4, type: 3}
-  - {fileID: 5167851535948622505, guid: c4fb067fff4622b4b854bb6ce9d9a37d, type: 3}
-  - {fileID: 584025521271711163, guid: 57e17adb5db1bb34080da455fba0504d, type: 3}
-  - {fileID: 8150014201870379503, guid: 302b20b2c19fae24ba381d82247abf50, type: 3}
-  - {fileID: 4775874597414784544, guid: 966d1187ee068ff4a97e90d40e42b369, type: 3}
-  roomsPrefabsL:
-  - {fileID: 5734238852682100714, guid: c88b14ff11976314ab54032575b135cb, type: 3}
-  - {fileID: 3368839797423558419, guid: 94add020ef5c5694daae498548f1b307, type: 3}
-  - {fileID: 353404043344483734, guid: 86fd6ac24ec685944aed8d5208237d05, type: 3}
-  - {fileID: 1896079856033507380, guid: 4b14c4804a0c49746989252a7ef738eb, type: 3}
-  - {fileID: 5167851535948622505, guid: c4fb067fff4622b4b854bb6ce9d9a37d, type: 3}
-  - {fileID: 4775874597414784544, guid: 966d1187ee068ff4a97e90d40e42b369, type: 3}
-  - {fileID: 8150014201870379503, guid: a076287e8baa0a04897c720d5264427e, type: 3}
-  roomsPrefabsR:
-  - {fileID: 5734238852682100714, guid: c88b14ff11976314ab54032575b135cb, type: 3}
-  - {fileID: 3368839797423558419, guid: 94add020ef5c5694daae498548f1b307, type: 3}
-  - {fileID: 353404043344483734, guid: 86fd6ac24ec685944aed8d5208237d05, type: 3}
-  - {fileID: 1303674859962915553, guid: 40c7226121b1ca744883f3062403e52f, type: 3}
-  - {fileID: 4099767567494057017, guid: 2b6094634f038c845889927c909e06d1, type: 3}
-  - {fileID: 5247824065576566053, guid: cefc5d6491fa4f1469845c3ddbae15a0, type: 3}
-  - {fileID: 8150014201870379503, guid: 302b20b2c19fae24ba381d82247abf50, type: 3}
-  - {fileID: 8150014201870379503, guid: a076287e8baa0a04897c720d5264427e, type: 3}
+  roomsPrefabsT: []
+  roomsPrefabsD: []
+  roomsPrefabsL: []
+  roomsPrefabsR: []
+  blockDoorPrefab: {fileID: 5919793923188550696, guid: 8544b475643308941827a662274ac317, type: 3}
+  upRoom: {fileID: 0}
+  downRoom: {fileID: 0}
+  leftRoom: {fileID: 0}
+  rightRoom: {fileID: 0}
 --- !u!61 &8696330722845192344
 BoxCollider2D:
   m_ObjectHideFlags: 0
