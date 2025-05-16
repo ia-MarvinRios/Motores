@@ -703,7 +703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FishManager: {fileID: 1652039487}
-  movementSpeed: 0
+  movementSpeed: 20
   minPos: {fileID: 1783977067}
   maxPos: {fileID: 311680963}
   enemiHealth: 10
