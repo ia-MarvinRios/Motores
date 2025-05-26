@@ -29,6 +29,8 @@ public class MoveBetweenRooms : MonoBehaviour
     public GameObject downButton;
     public GameObject leftButton;
     public GameObject rigthButton;
+    public float delayTimer = 0.5f;
+
 
     private void OnEnable()
     {
@@ -55,14 +57,14 @@ public class MoveBetweenRooms : MonoBehaviour
         actionPanel.SetActive(false);
         changeRoomsButtonsPanel.SetActive(false);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(delayTimer);
         CleanActualRoomInfo();
 
         SetNewRooms();
         EnableRoomButtons();
 
 
-         yield return new WaitForSeconds(2);
+         yield return new WaitForSeconds(delayTimer);
 
 
         if (actualRoom.isPlayed)
@@ -139,7 +141,7 @@ public class MoveBetweenRooms : MonoBehaviour
     {
         if (room == null) return;
         actualRoom = room.transform.GetComponent<ScenaryBlock>();
-        cameraPos.target = room;
+        cameraPos.MoveToTarget(room);
         StartCoroutine(InitRoom());
     }
 
