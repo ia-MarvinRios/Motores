@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class MoveBetweenRooms : MonoBehaviour
 {
-    
+    private Explore explore = new Explore();
 
     public ScenaryBlock actualRoom;
     public MiniGamesManager miniGamesManager;
-    public CameraMovement cameraPos;
+    public MoveToTarget cameraPos;
+    public MoveToTarget playerPos;
 
     
 
@@ -101,19 +102,24 @@ public class MoveBetweenRooms : MonoBehaviour
     //acciones ______________________________________
     public void Explore()
     {
-        Debug.Log("Explore");
-        actualRoom.isPlayed = true;
-        StartCoroutine(InitRoom());
+        actionPanel.SetActive(false);
+        changeRoomsButtonsPanel.SetActive(false);
+        explore.TriggerRandomEvent();
+
     }
     //minigames
     public void Fight()
     {
+        actionPanel.SetActive(false);
+        changeRoomsButtonsPanel.SetActive(false);
         Debug.Log("Fight");
         actualRoom.isPlayed = true;
         StartCoroutine(InitRoom());
     }
     public void Shop()
     {
+        actionPanel.SetActive(false);
+        changeRoomsButtonsPanel.SetActive(false);
         Debug.Log("Shop");
         actualRoom.isPlayed = true;
         StartCoroutine(InitRoom());
@@ -137,11 +143,17 @@ public class MoveBetweenRooms : MonoBehaviour
         ChangeRoomButtonLogic(RightRoom);
     }
 
+    public void ContinueAfterEvent()
+    {
+        actualRoom.isPlayed = true;
+        StartCoroutine(InitRoom());
+    }
     void ChangeRoomButtonLogic(Transform room)
     {
         if (room == null) return;
         actualRoom = room.transform.GetComponent<ScenaryBlock>();
-        cameraPos.MoveToTarget(room);
+        cameraPos.SetTargetAndMove(room);
+        playerPos.SetTargetAndMove(room);
         StartCoroutine(InitRoom());
     }
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class CameraMovement : MonoBehaviour
+public class MoveToTarget : MonoBehaviour
 {
     public Transform target;
     public float movementDuration = 1f; // Tiempo en segundos para completar el movimiento
@@ -9,16 +9,17 @@ public class CameraMovement : MonoBehaviour
 
     private Coroutine movementCoroutine;
     private Vector3 originalPosition;
+    public float zPos;
     private bool isMoving = false;
 
     // Llama a este método para iniciar el movimiento
-    public void MoveToTarget(Transform t)
+    public void SetTargetAndMove(Transform t)
     {
         target = t;
         if (isMoving) return; // Evita iniciar un nuevo movimiento si ya hay uno en curso
 
         originalPosition = transform.position;
-        Vector3 targetPosition = new Vector3(target.position.x, target.position.y, -10);
+        Vector3 targetPosition = new Vector3(target.position.x, target.position.y, zPos);
 
         if (movementCoroutine != null)
         {

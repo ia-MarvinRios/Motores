@@ -15,7 +15,7 @@ public class PPT_MoveTowards : MonoBehaviour
         
         origen = transform.position;
         
-        //MoveToTarget();
+        //SetTargetAndMove();
     }
 
     private void Update()
