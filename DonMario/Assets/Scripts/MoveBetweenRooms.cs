@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveBetweenRooms : MonoBehaviour
 {
-    private Explore explore = new Explore();
+    private readonly Explore explore = new Explore();
 
     public ScenaryBlock actualRoom;
     public MiniGamesManager miniGamesManager;
@@ -143,7 +143,7 @@ public class MoveBetweenRooms : MonoBehaviour
         ChangeRoomButtonLogic(RightRoom);
     }
 
-    public void ContinueAfterEvent()
+    public void ContinueAfterFight()
     {
         actualRoom.isPlayed = true;
         StartCoroutine(InitRoom());

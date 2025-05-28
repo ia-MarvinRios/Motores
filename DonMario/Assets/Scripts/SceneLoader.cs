@@ -3,27 +3,38 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    public SceneLoader Instance;
     public int minigame = 3;
-   
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
     private void OnEnable()
     {
         MiniGamesManager.Instance.OnStartMiniGame += ChooseMinigame;
 
-        MiniGamesManager.Instance.OnLoseMiniGame += CloseMinigame;
-        MiniGamesManager.Instance.OnWinMiniGame += CloseMinigame;
+        /*MiniGamesManager.Instance.OnLoseMiniGame += CloseMinigame;
+        MiniGamesManager.Instance.OnWinMiniGame += CloseMinigame;*/
     }
 
     private void OnDisable()
     {
         MiniGamesManager.Instance.OnStartMiniGame -= ChooseMinigame;
 
-        MiniGamesManager.Instance.OnLoseMiniGame -= CloseMinigame;
-        MiniGamesManager.Instance.OnWinMiniGame -= CloseMinigame;
+       /* MiniGamesManager.Instance.OnLoseMiniGame -= CloseMinigame;
+        MiniGamesManager.Instance.OnWinMiniGame -= CloseMinigame;*/
     }
     public void ChooseMinigame()
     {
-        //minigame = Random.Range(0, 6);
+        minigame = Random.Range(0, 6);
         LoadSceneAdditive(Resultado(minigame));
     }
     public void CloseMinigame()

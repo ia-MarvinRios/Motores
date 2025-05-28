@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PiedraPapelTijeras : MonoBehaviour
 {
+    public EnemyAttackType EnemyAttackType = EnemyAttackType.Light;
     int round = 1;
     int wins = 0; 
     int loses = 0;
@@ -69,7 +70,7 @@ public class PiedraPapelTijeras : MonoBehaviour
         if(loses > 1)
         {
             yield return new WaitForSeconds(1f);
-            FindObjectOfType<MiniGamesManager>().Invoke_LoseMiniGame();
+            FindObjectOfType<MiniGamesManager>().Invoke_LoseMiniGame(EnemyAttackType);
             yield break;
         }
         if (wins > 1)

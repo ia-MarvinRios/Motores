@@ -14,6 +14,26 @@ public class Explore
         NormalizeProbabilities();
     }
 
+
+    private void NormalizeProbabilities()
+    {
+        int total = healProbability + damageProbability + specialEventProbability + nothingProbability;
+
+        if (total != 100)
+        {
+            float multiplier = 100f / total;
+            healProbability = Mathf.RoundToInt(healProbability * multiplier);
+            damageProbability = Mathf.RoundToInt(damageProbability * multiplier);
+            specialEventProbability = Mathf.RoundToInt(specialEventProbability * multiplier);
+            nothingProbability = 100 - healProbability - damageProbability - specialEventProbability;
+        }
+    }
+
+
+
+
+
+
     public void TriggerRandomEvent()
     {
         int randomValue = Random.Range(0, 100);
@@ -44,31 +64,10 @@ public class Explore
         Nothing();
     }
 
-    public void SetProbabilities(int heal, int damage, int special, int nothing)
-    {
-        healProbability = heal;
-        damageProbability = damage;
-        specialEventProbability = special;
-        nothingProbability = nothing;
-        NormalizeProbabilities();
-    }
+  
 
-    private void NormalizeProbabilities()
-    {
-        int total = healProbability + damageProbability + specialEventProbability + nothingProbability;
-
-        if (total != 100)
-        {
-            float multiplier = 100f / total;
-            healProbability = Mathf.RoundToInt(healProbability * multiplier);
-            damageProbability = Mathf.RoundToInt(damageProbability * multiplier);
-            specialEventProbability = Mathf.RoundToInt(specialEventProbability * multiplier);
-            nothingProbability = 100 - healProbability - damageProbability - specialEventProbability;
-        }
-    }
-
-    // Listas de eventos (las mismas que tenías)
-    private List<string> healingEvents = new List<string>()
+   
+    private readonly List<string> healingEvents = new List<string>()
     {
         "Encuentras una poción curativa y recuperas {0} de vida.",
         "Un misterioso sanador te bendice, restaurando {0} de salud.",
@@ -84,34 +83,34 @@ public class Explore
 
     public void Heal()
     {
-        int max = Mathf.FloorToInt(PlayerManager.Instance.stats.maxHealth / 2);
+        int max = Mathf.FloorToInt(PlayerManager.Instance.stats.maxHealth / 3);
         int healthChange = Random.Range(1, max + 1);
         string message = string.Format(healingEvents[Random.Range(0, healingEvents.Count)], healthChange);
-        PlayerManager.Instance.ModifyHealth(healthChange);
+        PlayerManager.Instance.Heal(healthChange);
         TypewriterTextUI.Instance.ShowMessage(message);
     }
 
     public void Damage()
     {
-        int max = Mathf.FloorToInt(PlayerManager.Instance.stats.maxHealth / 2);
+        int max = Mathf.FloorToInt(PlayerManager.Instance.stats.maxHealth / 3);
         int healthChange = Random.Range(1, max + 1);
         string message = string.Format(damageEvents[Random.Range(0, damageEvents.Count)], healthChange);
-        PlayerManager.Instance.ModifyHealth(-healthChange);
+        PlayerManager.Instance.TakeDamage(healthChange);
         TypewriterTextUI.Instance.ShowMessage(message);
     }
 
     public void SpecialEvent()
     {
-        if (PlayerManager.Instance.CurrentHealth < 2)
+        if (PlayerManager.Instance.GetHelth() < 2)
         {
             int healthChange = 10;
             string message = "¡Estás al borde de la muerte, pero un dios te concede una segunda oportunidad (+10 HP)!";
-            PlayerManager.Instance.ModifyHealth(healthChange);
+            PlayerManager.Instance.Heal(healthChange);
             TypewriterTextUI.Instance.ShowMessage(message);
         }
         else
         {
-            Nothing(); // Reutilizamos Nothing() para mantener consistencia
+            Nothing(); 
         }
     }
 

@@ -14,6 +14,8 @@ public class LLuviaProbabilidad : MonoBehaviour
     [SerializeField] private float probabilidadManzana = 0.8f; // 80%
     // La probabilidad de piedra será automáticamente (1 - probabilidadManzana)
 
+    public ContadorManzanas contadorManzanas;
+
     void Start()
     {
         InvokeRepeating("Caida", espera, espera);
@@ -21,7 +23,10 @@ public class LLuviaProbabilidad : MonoBehaviour
 
     void Caida()
     {
-        GameObject objetoACaer = (Random.value <= probabilidadManzana) ? manzana : piedra;
-        Instantiate(objetoACaer, new Vector3(Random.Range(-10f, 10f), 10f, 0f), Quaternion.identity);
+        if (contadorManzanas.Puntos <= 20)
+        {
+            GameObject objetoACaer = (Random.value <= probabilidadManzana) ? manzana : piedra;
+            Instantiate(objetoACaer, new Vector3(Random.Range(-10f, 10f), 10f, 0f), Quaternion.identity);
+        }
     }
 }

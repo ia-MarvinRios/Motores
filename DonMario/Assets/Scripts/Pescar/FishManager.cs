@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class FishManager : MonoBehaviour
 {
-    
+    public EnemyAttackType EnemyAttackType = EnemyAttackType.Light;
     public float timer = 20;
     public bool canLose = true;
     public bool canWin = true;
@@ -72,7 +72,7 @@ public class FishManager : MonoBehaviour
         losePanel.SetActive(true);
 
         yield return new WaitForSeconds(3);
-        FindObjectOfType<MiniGamesManager>().Invoke_LoseMiniGame();
+        FindObjectOfType<MiniGamesManager>().Invoke_LoseMiniGame(EnemyAttackType);
         
     }
 

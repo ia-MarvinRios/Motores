@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a29b8163aa8cf69419bdc889b00796f1, type: 3}
-  m_Name: NewPlayerClass
+  m_Name: HeavyWarrior
   m_EditorClassIdentifier: 
   classType: 0
   playerName: Surtur
-  classDescription: le gustan los hombres
-  maxHealth: 5
-  baseDamage: 3
-  defense: 3
+  characterDescripcion: 
+  maxHealth: 120
+  baseDamage: 18
+  defense: 0.7
   classIcon: {fileID: 0}
-  classColor: {r: 1, g: 1, b: 1, a: 1}
+  classColor: {r: 1, g: 0, b: 0, a: 1}
   frases:
-  - me gustan grandes
+  - "\xA1Romper\xE9 tus defensas!"
+  - Nadie pasa.
+  - "Para m\xED, esto es un calentamiento."

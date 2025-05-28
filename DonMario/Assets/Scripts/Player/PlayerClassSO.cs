@@ -5,7 +5,7 @@ public class PlayerClassSO : ScriptableObject
 {
     public PlayerClasses classType;
     public string playerName;
-    public string classDescription;
+    public string characterDescripcion;
 
     [Header("Stats")]
     public int maxHealth;
@@ -20,3 +20,4 @@ public class PlayerClassSO : ScriptableObject
     [Header("Frases")]
     public string[] frases;
 }
+

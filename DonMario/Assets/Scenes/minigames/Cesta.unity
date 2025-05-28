@@ -170,10 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -257,11 +257,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 556792403}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -158.1, y: 112.5}
-  m_SizeDelta: {x: 126.9591, y: 21.5025}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_SizeDelta: {x: 500, y: 105.953}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &641396498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,8 +311,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -373,6 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291ae5f8d062cf64686ff2f62b8a2ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyAttackType: 0
   detector: {fileID: 1478945553}
   textoPuntaje: {fileID: 641396498}
 --- !u!1 &1038114364
@@ -484,6 +485,7 @@ MonoBehaviour:
   manzana: {fileID: 8600277580113450510, guid: 14ebb35a50d4a8d44be7c9d90f1c53c9, type: 3}
   piedra: {fileID: 2966196894161114320, guid: 7f859384cf261c2419ca209f24639322, type: 3}
   probabilidadManzana: 0.8
+  contadorManzanas: {fileID: 0}
 --- !u!1 &1478945553
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,7 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1474347a1e943ea4f9c8e27202d82b33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contador: {fileID: 0}
+  contador: {fileID: 641396500}
 --- !u!1 &1686961740
 GameObject:
   m_ObjectHideFlags: 0

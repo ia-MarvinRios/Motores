@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ContadorManzanas : MonoBehaviour
 {
+    public EnemyAttackType EnemyAttackType = EnemyAttackType.Light;
+
     [Header("Objeto que detecta colisiones con manzanas")]
     [SerializeField] private GameObject detector;
 
@@ -13,6 +15,9 @@ public class ContadorManzanas : MonoBehaviour
 
     [Header("Puntaje actual")]
     private int puntos = 0;
+
+    public int Puntos { get => puntos; set => puntos = value; }
+
     public void SumarPunto()
     {
         puntos++;
@@ -20,7 +25,7 @@ public class ContadorManzanas : MonoBehaviour
 
         if (puntos >= 20)
         {
-            Debug.Log("Ganaste");
+            MiniGamesManager.Instance.Invoke_WinMiniGame();
         }
     }
 
@@ -28,7 +33,7 @@ public class ContadorManzanas : MonoBehaviour
     {
         if (detector == null)
         {
-            Debug.Log("Perdiste");
+            MiniGamesManager.Instance.Invoke_LoseMiniGame(EnemyAttackType);
             enabled = false;
         }
     }

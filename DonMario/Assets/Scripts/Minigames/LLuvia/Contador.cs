@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Contador : MonoBehaviour
 {
+    public EnemyAttackType EnemyAttackType = EnemyAttackType.Light;
     [SerializeField] private GameObject objetoRequerido;
     [SerializeField] private Font fuente;  // Para asignar Liberation Sans desde el inspector
     private Text contadorText;
@@ -45,6 +46,7 @@ public class Contador : MonoBehaviour
         // Verificar si el objeto ha sido destruido
         if (objetoRequerido == null)
         {
+            MiniGamesManager.Instance.Invoke_LoseMiniGame(EnemyAttackType);
             Debug.Log("Juego perdido: el objeto fue destruido.");
             juegoTerminado = true;
             return;
@@ -57,7 +59,7 @@ public class Contador : MonoBehaviour
         // Verificar si el contador llega a 20 segundos
         if (tiempo >= 20f)
         {
-            Debug.Log("Juego ganado: sobreviviste 20 segundos.");
+            MiniGamesManager.Instance.Invoke_WinMiniGame();
             juegoTerminado = true;
         }
     }

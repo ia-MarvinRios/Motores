@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JugadorMovimiento : MonoBehaviour
 {
-    float horizontalInput;
+    //float horizontalInput;
     float Velocidad = 10f;
     Rigidbody2D rb;
     // Start is called before the first frame update
@@ -16,12 +16,14 @@ public class JugadorMovimiento : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-    }
+        // Obtener la posición del mouse en el mundo
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-    private void FixedUpdate()
-    {
-        rb.velocity = new Vector2(horizontalInput * Velocidad, rb.velocity.y); 
+        // Calcular la dirección hacia la posición X del mouse
+        float direction = Mathf.Clamp(mousePosition.x - transform.position.x, -1f, 1f);
+
+        // Mover el objeto hacia la posición del mouse
+        rb.velocity = new Vector2(direction * Velocidad, rb.velocity.y);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

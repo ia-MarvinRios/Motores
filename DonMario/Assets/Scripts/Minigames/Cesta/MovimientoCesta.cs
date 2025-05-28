@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MovimientoCesta : MonoBehaviour
 {
-    float horizontalInput;
     float Velocidad = 15f;
     Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,13 +16,16 @@ public class MovimientoCesta : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
+        // Obtener la posición del mouse en el mundo
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        // Calcular la dirección hacia la posición X del mouse
+        float direction = Mathf.Clamp(mousePosition.x - transform.position.x, -1f, 1f);
+
+        // Mover el objeto hacia la posición del mouse
+        rb.velocity = new Vector2(direction * Velocidad, rb.velocity.y);
     }
 
-    private void FixedUpdate()
-    {
-        rb.velocity = new Vector2(horizontalInput * Velocidad, rb.velocity.y);
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Acido"))
@@ -30,10 +33,11 @@ public class MovimientoCesta : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
     public ContadorManzanas contador;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("manzana"))
+        if (other.CompareTag("Manzana"))
         {
             contador.SumarPunto();
         }

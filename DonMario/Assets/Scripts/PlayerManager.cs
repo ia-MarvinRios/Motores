@@ -1,4 +1,3 @@
-using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -14,8 +13,8 @@ public class PlayerManager : MonoBehaviour
     public TextMeshProUGUI healthTxt;
 
     [SerializeField]public PlayerStats stats { get; private set; }
-    Explore exploreLogic;
-    public int CurrentHealth { get; private set; }
+    //Explore exploreLogic;
+    private int currentHealth;
 
     private void Awake()
     {
@@ -39,10 +38,10 @@ public class PlayerManager : MonoBehaviour
     {
         currentClass = playerClass;
         stats = new PlayerStats(playerClass);
-        CurrentHealth = stats.maxHealth;
+        currentHealth = stats.maxHealth;
         SetHealthTxt();
 
-        Debug.Log($"Jugador inicializado como {currentClass.playerName}");
+        //Debug.Log($"Jugador inicializado como {currentClass.playerName}");
     }
 
     // Método para cambiar de clase
@@ -62,50 +61,31 @@ public class PlayerManager : MonoBehaviour
 
     public void SetHealthTxt()
     {
-        healthTxt.text = $"Vida: {CurrentHealth}";
+        healthTxt.text = $"Vida: {currentHealth}";
+       // SetHealthTxt();
+    }
+
+    //enemigos
+    public void TakeDamage(int points, EnemyAttackType aType = EnemyAttackType.Light)
+    {
+        stats.TakeDamage(ref currentHealth, aType);
+        SetHealthTxt();
+    }
+    //eventos especiales como en "explorar" 
+    public void TakeDamage(int points)
+    {
+        stats.TakeDamage(ref currentHealth, points);
         SetHealthTxt();
     }
 
-    public void ModifyHealth(int points)
+    public void Heal(int points)
     {
-        CurrentHealth = Mathf.Clamp(CurrentHealth + points, 0, stats.maxHealth);
+        stats.Heal(ref currentHealth, points);
+        SetHealthTxt();
     }
 
   
-    public int GetHelth() => CurrentHealth;
+    public int GetHelth() => currentHealth;
 
 
-}
-
-[System.Serializable]
-public class PlayerStats
-{
-    public int maxHealth;
-    public float movementSpeed;
-    public int baseDamage;
-    public float attackSpeed;
-    public float defense;
-    public string className;
-    public string classDescription;
-    public Sprite classIcon;
-    public Color classColor;
-
-    public PlayerStats(PlayerClassSO playerClass)
-    {
-        maxHealth = playerClass.maxHealth;
-        baseDamage = playerClass.baseDamage;
-        defense = playerClass.defense;
-        className = playerClass.playerName;
-        classDescription = playerClass.classDescription;
-        classIcon = playerClass.classIcon;
-        classColor = playerClass.classColor;
-    }
-}
-
-public enum PlayerClasses
-{
-    GuerreroPesado,
-    GuerreroLigero,
-    Picaro,
-    Sanadora
 }

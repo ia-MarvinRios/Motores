@@ -8,7 +8,7 @@ public class MiniGamesManager : MonoBehaviour//Singleton<MiniGamesManager>
     public event Action OnStartMiniGame;
     public event Action OnEndMiniGame;
     public event Action OnWinMiniGame;
-    public event Action OnLoseMiniGame;
+    public event Action<EnemyAttackType> OnLoseMiniGame;
 
 
     public GameObject[] objectsToHideOnMinigame;
@@ -30,13 +30,13 @@ public class MiniGamesManager : MonoBehaviour//Singleton<MiniGamesManager>
     {
         //OnStartMiniGame += StartMiniGame;
         OnWinMiniGame += EndMinigame;
-        OnLoseMiniGame += EndMinigame;
+        //OnLoseMiniGame += EndMinigame;
     }
     private void OnDisable()
     {
         //OnStartMiniGame -= StartMiniGame;
         OnWinMiniGame -= EndMinigame;
-        OnLoseMiniGame -= EndMinigame;
+        //OnLoseMiniGame -= EndMinigame;
     }
 
     private void Update()
@@ -56,11 +56,7 @@ public class MiniGamesManager : MonoBehaviour//Singleton<MiniGamesManager>
         Invoke_StartMiniGame();
     }
 
-    public void EndMinigame()
-    {
-        ShowObjects(true);
-        OnEndMiniGame?.Invoke();
-    }
+    
     public void ShowObjects(bool show)
     {
         if (objectsToHideOnMinigame == null || objectsToHideOnMinigame.Length < 1) return;
@@ -74,6 +70,11 @@ public class MiniGamesManager : MonoBehaviour//Singleton<MiniGamesManager>
 
 
     // Activar Delegados ______________________________________ 
+    public void EndMinigame()
+    {
+        ShowObjects(true);
+        OnEndMiniGame?.Invoke();
+    }
     public void Invoke_StartMiniGame()
     {
         OnStartMiniGame?.Invoke();
@@ -81,10 +82,12 @@ public class MiniGamesManager : MonoBehaviour//Singleton<MiniGamesManager>
     public void Invoke_WinMiniGame()
     {
         OnWinMiniGame?.Invoke();
+        EndMinigame();
     }
-    public void Invoke_LoseMiniGame()
+    public void Invoke_LoseMiniGame(EnemyAttackType aType)
     {
-        OnLoseMiniGame?.Invoke();
+        OnLoseMiniGame?.Invoke(aType);
+        EndMinigame();
     }
     
 
