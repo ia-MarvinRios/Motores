@@ -228,7 +228,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   espera: 0.4
-  Gotas: {fileID: 5700330056503222165, guid: c8a03eee48e1a2b48954391e50eaed65, type: 3}
+  gotaPrefab: {fileID: 5700330056503222165, guid: c8a03eee48e1a2b48954391e50eaed65, type: 3}
+  tiempoCambioPatron: 0.5
+  minX: -10
+  maxX: 10
+  alturaInicial: 10
+  densidadPorPatron: 5
 --- !u!1 &928928619
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,8 +388,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1849559109
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -444,6 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5918cbd76df83a14582f1b7ad14d975b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meinCamera: {fileID: 653776034}
 --- !u!50 &2014182387
 Rigidbody2D:
   serializedVersion: 4
@@ -554,8 +560,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1849559109
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.990566, g: 0.032707386, b: 0.032707386, a: 1}

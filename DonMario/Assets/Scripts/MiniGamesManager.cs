@@ -7,7 +7,7 @@ public class MiniGamesManager : MonoBehaviour//Singleton<MiniGamesManager>
     public static MiniGamesManager Instance;
     public event Action OnStartMiniGame;
     public event Action OnEndMiniGame;
-    public event Action OnWinMiniGame;
+    //public event Action OnWinMiniGame;
     public event Action<EnemyAttackType> OnLoseMiniGame;
 
 
@@ -23,20 +23,6 @@ public class MiniGamesManager : MonoBehaviour//Singleton<MiniGamesManager>
         {
             Destroy(gameObject);
         }
-    }
-
-
-    private void OnEnable()
-    {
-        //OnStartMiniGame += StartMiniGame;
-        OnWinMiniGame += EndMinigame;
-        //OnLoseMiniGame += EndMinigame;
-    }
-    private void OnDisable()
-    {
-        //OnStartMiniGame -= StartMiniGame;
-        OnWinMiniGame -= EndMinigame;
-        //OnLoseMiniGame -= EndMinigame;
     }
 
     private void Update()
@@ -81,7 +67,7 @@ public class MiniGamesManager : MonoBehaviour//Singleton<MiniGamesManager>
     }
     public void Invoke_WinMiniGame()
     {
-        OnWinMiniGame?.Invoke();
+        
         EndMinigame();
     }
     public void Invoke_LoseMiniGame(EnemyAttackType aType)

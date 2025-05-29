@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FishPlayer : MonoBehaviour
 {
+    public Camera meinCamera;
     public FishManager FishManager;
     public float movementSpeed;
     public Transform minPos;
@@ -41,8 +42,8 @@ public class FishPlayer : MonoBehaviour
         Vector3 objectWorldPosition = transform.position;
 
         // Convertir la posición del objeto a coordenadas de pantalla
-        Camera mainCamera = Camera.main;
-        Vector3 objectScreenPosition = mainCamera.WorldToScreenPoint(objectWorldPosition);
+     
+        Vector3 objectScreenPosition = meinCamera.WorldToScreenPoint(objectWorldPosition);
 
         // 2. Obtener la posición del mouse
         Vector3 mouseScreenPosition = Input.mousePosition;

@@ -18,6 +18,6 @@ public class PlayerClassSO : ScriptableObject
 
 
     [Header("Frases")]
-    public string[] frases;
+    public string[] frases; 
 }
 

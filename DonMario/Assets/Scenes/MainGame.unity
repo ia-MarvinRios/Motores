@@ -747,6 +747,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528472389}
   m_CullTransparentMesh: 1
+--- !u!1 &568655285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 568655287}
+  - component: {fileID: 568655286}
+  m_Layer: 0
+  m_Name: ActionsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &568655286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568655285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ab9e178e67ae143916ac62c1b82acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &568655287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568655285}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4825101, y: -7.9517965, z: -0.12736444}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &580610552
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,6 +925,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580610552}
   m_CullTransparentMesh: 1
+--- !u!1 &767301022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 767301023}
+  m_Layer: 0
+  m_Name: -------- managers ---------
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &767301023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767301022}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4825101, y: -7.9517965, z: -0.12736444}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &796015228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,8 +1078,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2063067033}
-        m_TargetAssemblyTypeName: MoveBetweenRooms, Assembly-CSharp
+      - m_Target: {fileID: 2063067034}
+        m_TargetAssemblyTypeName: RoomActions, Assembly-CSharp
         m_MethodName: Explore
         m_Mode: 1
         m_Arguments:
@@ -1114,7 +1189,7 @@ GameObject:
   - component: {fileID: 915668083}
   - component: {fileID: 915668082}
   m_Layer: 5
-  m_Name: top
+  m_Name: up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1184,7 +1259,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2063067033}
-        m_TargetAssemblyTypeName: MoveBetweenRooms, Assembly-CSharp
+        m_TargetAssemblyTypeName: RoomNavigation, Assembly-CSharp
         m_MethodName: MoveUp
         m_Mode: 1
         m_Arguments:
@@ -1450,7 +1525,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2063067033}
-        m_TargetAssemblyTypeName: MoveBetweenRooms, Assembly-CSharp
+        m_TargetAssemblyTypeName: RoomNavigation, Assembly-CSharp
         m_MethodName: MoveLeft
         m_Mode: 1
         m_Arguments:
@@ -1663,21 +1738,6 @@ MonoBehaviour:
   TextPanel: {fileID: 1918104361}
   textDisplay: {fileID: 580610554}
   charactersPerSecond: 20
-  onTextFinished:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2063067033}
-        m_TargetAssemblyTypeName: MoveBetweenRooms, Assembly-CSharp
-        m_MethodName: ContinueAfterEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1111901058
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,7 +1885,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2063067033}
-        m_TargetAssemblyTypeName: MoveBetweenRooms, Assembly-CSharp
+        m_TargetAssemblyTypeName: RoomNavigation, Assembly-CSharp
         m_MethodName: MoveRight
         m_Mode: 1
         m_Arguments:
@@ -1957,7 +2017,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2063067033}
-        m_TargetAssemblyTypeName: MoveBetweenRooms, Assembly-CSharp
+        m_TargetAssemblyTypeName: RoomNavigation, Assembly-CSharp
         m_MethodName: MoveDown
         m_Mode: 1
         m_Arguments:
@@ -2089,8 +2149,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2063067033}
-        m_TargetAssemblyTypeName: MoveBetweenRooms, Assembly-CSharp
+      - m_Target: {fileID: 2063067034}
+        m_TargetAssemblyTypeName: RoomActions, Assembly-CSharp
         m_MethodName: Shop
         m_Mode: 1
         m_Arguments:
@@ -2222,8 +2282,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2063067033}
-        m_TargetAssemblyTypeName: MoveBetweenRooms, Assembly-CSharp
+      - m_Target: {fileID: 2063067034}
+        m_TargetAssemblyTypeName: RoomActions, Assembly-CSharp
         m_MethodName: Fight
         m_Mode: 1
         m_Arguments:
@@ -2632,7 +2692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29760d360eb289343ac5b58a304cb513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minigame: 4
 --- !u!4 &1919361837
 Transform:
   m_ObjectHideFlags: 0
@@ -2793,7 +2852,7 @@ GameObject:
   - component: {fileID: 2049549148}
   - component: {fileID: 2049549149}
   m_Layer: 5
-  m_Name: ActionButtons
+  m_Name: ActionButtonsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2856,29 +2915,18 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2063067031}
-  - component: {fileID: 2063067030}
+  - component: {fileID: 2063067036}
+  - component: {fileID: 2063067035}
+  - component: {fileID: 2063067034}
   - component: {fileID: 2063067033}
+  - component: {fileID: 2063067032}
   m_Layer: 0
-  m_Name: Manager
+  m_Name: Rooms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2063067030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2063067029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1545fa9f105a1f14daa5c9d1f1a1dcad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxNumberRooms: 10
-  actualsRooms: 0
 --- !u!4 &2063067031
 Transform:
   m_ObjectHideFlags: 0
@@ -2894,6 +2942,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2063067032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063067029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870009895eaf7034d8358494a84cee2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionPanel: {fileID: 2049549147}
+  changeRoomsButtonsPanel: {fileID: 796015228}
+  upButton: {fileID: 915668080}
+  downButton: {fileID: 1163365802}
+  leftButton: {fileID: 1043705678}
+  rightButton: {fileID: 1161529446}
 --- !u!114 &2063067033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2903,26 +2969,62 @@ MonoBehaviour:
   m_GameObject: {fileID: 2063067029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd9ec41a865b31246ba4c2f1ddaab382, type: 3}
+  m_Script: {fileID: 11500000, guid: dda5f8fd954a8e949bd3333cfa331ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actualRoom: {fileID: 220986099}
-  miniGamesManager: {fileID: 1084139109}
   cameraPos: {fileID: 519420033}
   playerPos: {fileID: 353182498}
-  actionPanel: {fileID: 2049549147}
-  changeRoomsButtonsPanel: {fileID: 796015228}
-  upButton: {fileID: 915668080}
-  downButton: {fileID: 1163365802}
-  leftButton: {fileID: 1043705678}
-  rigthButton: {fileID: 1161529446}
+  actualRoom: {fileID: 220986099}
+--- !u!114 &2063067034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063067029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0b898aab86d2141a1e34881f23294c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2063067035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063067029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10889a17d2d305428ae7c11b4e76cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   delayTimer: 1.5
+  navigation: {fileID: 2063067033}
+  ui: {fileID: 2063067032}
+  actions: {fileID: 2063067034}
+--- !u!114 &2063067036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063067029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1545fa9f105a1f14daa5c9d1f1a1dcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxNumberRooms: 10
+  actualsRooms: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 767301023}
   - {fileID: 2063067031}
+  - {fileID: 568655287}
   - {fileID: 1084139110}
   - {fileID: 885764678}
   - {fileID: 1919361837}

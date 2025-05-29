@@ -33,6 +33,11 @@ public class PlayerManager : MonoBehaviour
 
 
     }
+   
+    private void OnDestroy()
+    {
+        MiniGamesManager.Instance.OnLoseMiniGame -= TakeDamage;
+    }
 
     public void InitializePlayer(PlayerClassSO playerClass)
     {
@@ -66,7 +71,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     //enemigos
-    public void TakeDamage(int points, EnemyAttackType aType = EnemyAttackType.Light)
+    public void TakeDamage(EnemyAttackType aType = EnemyAttackType.Light)
     {
         stats.TakeDamage(ref currentHealth, aType);
         SetHealthTxt();

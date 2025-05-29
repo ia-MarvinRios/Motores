@@ -206,6 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66644990d710160408281a070f07d7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayed: 0
+  isBlackBlock: 0
+  scenaryParent: {fileID: 0}
   spawnPoints:
   - {fileID: 6162539779731464734}
   - {fileID: 123882612926694200}
@@ -214,7 +217,7 @@ MonoBehaviour:
   minSpawnDelay: 0.1
   maxSpawnDelay: 0.3
   roomsPrefabsT:
-  - {fileID: 6234480639777414447}
+  - {fileID: 5734238852682100714, guid: c88b14ff11976314ab54032575b135cb, type: 3}
   - {fileID: 4099767567494057017, guid: 2b6094634f038c845889927c909e06d1, type: 3}
   - {fileID: 1896079856033507380, guid: 4b14c4804a0c49746989252a7ef738eb, type: 3}
   - {fileID: 1124451915951348257, guid: d530a48d61bfbdf4dbe2475335ad4dd4, type: 3}
@@ -248,6 +251,11 @@ MonoBehaviour:
   - {fileID: 5247824065576566053, guid: cefc5d6491fa4f1469845c3ddbae15a0, type: 3}
   - {fileID: 8150014201870379503, guid: 302b20b2c19fae24ba381d82247abf50, type: 3}
   - {fileID: 8150014201870379503, guid: a076287e8baa0a04897c720d5264427e, type: 3}
+  blockDoorPrefab: {fileID: 0}
+  upRoom: {fileID: 0}
+  downRoom: {fileID: 0}
+  leftRoom: {fileID: 0}
+  rightRoom: {fileID: 0}
 --- !u!61 &8754928192533182984
 BoxCollider2D:
   m_ObjectHideFlags: 0

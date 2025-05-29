@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JugadorMovimiento : MonoBehaviour
 {
+    public Camera meinCamera;
     //float horizontalInput;
     float Velocidad = 10f;
     Rigidbody2D rb;
@@ -17,7 +18,7 @@ public class JugadorMovimiento : MonoBehaviour
     void Update()
     {
         // Obtener la posición del mouse en el mundo
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mousePosition = meinCamera.ScreenToWorldPoint(Input.mousePosition);
 
         // Calcular la dirección hacia la posición X del mouse
         float direction = Mathf.Clamp(mousePosition.x - transform.position.x, -1f, 1f);

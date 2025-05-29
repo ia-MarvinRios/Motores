@@ -5,9 +5,10 @@ using UnityEngine;
 public class MoveBetweenRooms : MonoBehaviour
 {
     private readonly Explore explore = new Explore();
+    private bool isExploring;
 
     public ScenaryBlock actualRoom;
-    public MiniGamesManager miniGamesManager;
+    //public MiniGamesManager miniGamesManager;
     public MoveToTarget cameraPos;
     public MoveToTarget playerPos;
 
@@ -33,14 +34,14 @@ public class MoveBetweenRooms : MonoBehaviour
     public float delayTimer = 0.5f;
 
 
-    private void OnEnable()
-    {
-        miniGamesManager.OnEndMiniGame += AfterMiniGameEnd;
-    }
-    private void OnDisable()
-    {
-        miniGamesManager.OnEndMiniGame -= AfterMiniGameEnd;
-    }
+    //private void OnEnable()
+    //{
+    //    miniGamesManager.OnEndMiniGame += AfterMiniGameEnd;
+    //}
+    //private void OnDisable()
+    //{
+    //    miniGamesManager.OnEndMiniGame -= AfterMiniGameEnd;
+    //}
 
     private void Start()
     {
@@ -99,9 +100,10 @@ public class MoveBetweenRooms : MonoBehaviour
     }
 
 
-    //acciones ______________________________________
+    //acciones - referencia en los botones ______________________________________
     public void Explore()
     {
+        isExploring = true;
         actionPanel.SetActive(false);
         changeRoomsButtonsPanel.SetActive(false);
         explore.TriggerRandomEvent();
@@ -125,6 +127,8 @@ public class MoveBetweenRooms : MonoBehaviour
         StartCoroutine(InitRoom());
     }
 
+
+
     // moverse entre el mapa ______________________________________
     public void MoveUp()
     {
@@ -143,8 +147,9 @@ public class MoveBetweenRooms : MonoBehaviour
         ChangeRoomButtonLogic(RightRoom);
     }
 
-    public void ContinueAfterFight()
+    public void ContinueAfterEvent()
     {
+        isExploring = false;
         actualRoom.isPlayed = true;
         StartCoroutine(InitRoom());
     }

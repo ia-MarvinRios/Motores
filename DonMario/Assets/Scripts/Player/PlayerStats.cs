@@ -10,6 +10,7 @@ public class PlayerStats
     public string characterDescripcion;
     public Sprite classIcon;
     public Color classColor;
+    public string[] messages;
 
 
     public PlayerStats(PlayerClassSO playerClass)
@@ -20,6 +21,7 @@ public class PlayerStats
         characterDescripcion = playerClass.characterDescripcion;
         classIcon = playerClass.classIcon;
         classColor = playerClass.classColor;
+        messages = playerClass.frases;
     }
 
 
