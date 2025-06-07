@@ -59,7 +59,7 @@ public class BlackjackJugador : MonoBehaviour
 
         textoCartas.text = texto;
         textoTotal.text = $"Total: {total}";
-        visualizador.MostrarCartas(mano);
+
     }
 
     private void Plantarse()
